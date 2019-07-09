@@ -1,4 +1,4 @@
-# TGSKit
+# Telegram Sticker Kit by LottieFiles
 
 Toolkit for dealing with Telegram Stickers and Bodymovin/Lottie animations
 
