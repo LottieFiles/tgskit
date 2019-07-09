@@ -39,10 +39,6 @@ export class TGSKit {
   public validate(): string[] {
     const errors: string[] = [];
 
-    if (!('tgs' in this._data) || this._data.tgs !== 1) {
-      errors.push('Must be marked as a TGS Lottie variant');
-    }
-
     if (((this._data.op - this._data.ip) / this._data.fr) > 3.0) {
       errors.push('Longer than 3 seconds');
     }
@@ -102,6 +98,10 @@ export class TGSKit {
    * Generate a TGS file and return contents.
    */
   public generate(): any {
+    // Add TGS attribute
+    this._data.tgs = 1;
+
+    // GZip and return
     return pako.gzip(JSON.stringify(this._data));
   }
 

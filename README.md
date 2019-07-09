@@ -9,7 +9,7 @@ Toolkit for dealing with Telegram Stickers and Bodymovin/Lottie animations
 ##### Lottie Player:
 - Import from CDN.
 ```html
-<script src="https://unpkg.com/@lottiefiles/tgskit@0.0.1/dist/tgskit.js"></script>
+<script src="https://unpkg.com/@lottiefiles/tgskit@0.0.2/dist/tgskit.js"></script>
 ```
 
 - Import from local node_modules directory.
@@ -39,9 +39,9 @@ anim.load('http://localhost:1234/bodymovin.json')
     const errors = anim.validate();
 
     if (errors.length === 0) {
-      anim.download('sticker.tgs');
+      anim.download('sticker');
     } else {
-      console.log('Given JSON is not meet requirements for a TGS:');
+      console.log('Given JSON does not meet requirements for a TGS:');
       console.log(errors);
     }
   })
