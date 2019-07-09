@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>TGSKit</title>
+  <script src="../src/index.ts"></script>
+</head>
+
+<body>
+
+  <script>
+    const anim = new TGSKit();
+
+    anim.load('http://localhost:1234/bodymovin.json')
+      .then(() => {
+        const errors = anim.validate();
+
+        if (errors.length === 0) {
+          anim.download('sticker.tgs');
+        } else {
+          console.log('Given JSON is not meet requirements for a TGS:');
+          console.log(errors);
+        }
+      });
+
+  </script>
+</body>
+
+</html>

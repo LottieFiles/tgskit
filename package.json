@@ -1,0 +1,31 @@
+{
+  "name": "@lottiefiles/tgskit",
+  "version": "0.0.1",
+  "description": "Toolkit for dealing with Telegram Stickers and Bodymovin/Lottie animations.",
+  "main": "dist/TGSKit.js",
+  "author": "Jawish Hameed <jawish@lottiefiles.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "docs": "typedoc --out docs/ src/TGSKit.ts",
+    "build": "parcel build src/index.ts --detailed-report 50 --out-file tgskit.js",
+    "start": "parcel src/index.html"
+  },
+  "dependencies": {
+    "pako": "^1.0.10"
+  },
+  "devDependencies": {
+    "@types/pako": "^1.0.1",
+    "parcel-bundler": "^1.12.3",
+    "typedoc": "^0.14.2",
+    "typescript": "^3.5.2"
+  },
+  "files": [
+    "dist/"
+  ],
+  "browserslist": [
+    "> 3%"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

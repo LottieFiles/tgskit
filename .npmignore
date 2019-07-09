@@ -1,0 +1,14 @@
+docs/
+src/
+
+.idea
+.vscode
+
+.gitattributes
+.gitignore
+
+node_modules
+
+.cache
+tsconfig.json
+tslint.json
