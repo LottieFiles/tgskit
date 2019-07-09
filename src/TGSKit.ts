@@ -33,7 +33,6 @@ export class TGSKit {
       return this._data = src;
     }
 
-
     throw new Error('Given resource could not be loaded or is invalid.');
   }
 
@@ -153,7 +152,7 @@ export class TGSKit {
     }
 
     if (this._data.w != 512 || this._data.h != 512) {
-      errors.push({ message: 'Dimensions should be exactly 512pxx512px' });
+      errors.push({ message: 'Dimensions should be exactly 512px x 512px' });
     }
 
     if (this._data.ddd != null && this._data.ddd != 0) {
@@ -173,7 +172,7 @@ export class TGSKit {
           const assetErrors: IValidationError[] = this.checkLayer(asset.layers);
 
           if (assetErrors.length !== 0) {
-            assetsErrors.push({ message: `Asset ${asset.id || i} has errors`, details: assetErrors });
+            assetsErrors.push({ message: `Asset ${asset.id} has errors`, details: assetErrors });
           }
         }
       });
@@ -190,13 +189,13 @@ export class TGSKit {
         const layerErrors: IValidationError[] = this.checkLayer(layer);
 
         if (layerErrors.length !== 0) {
-          layersErrors.push({ message: `Layer `, details: layerErrors });
-        }
-
-        if (layersErrors.length !== 0) {
-          errors.push({ message: 'Layers have errors', details: layersErrors })
+          layersErrors.push({ message: `Layer "${layer.nm}"`, details: layerErrors });
         }
       });
+
+      if (layersErrors.length !== 0) {
+        errors.push({ message: 'Layers have errors', details: layersErrors })
+      }
     } else {
       errors.push({ message: 'Should have atleast 1 layer' });
     }

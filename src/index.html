@@ -9,11 +9,30 @@
 </head>
 
 <body>
-
+  <h3>Errors (if any):</h3>
+  <ul id="log"></ul>
   <script>
+    const displayErrors = (errors) => {
+      let html = '';
+
+      errors.forEach(error => {
+        if ('details' in error) {
+          html += `
+          <li>
+            ${error.message}
+            <ul>${displayErrors(error.details)}</ul>
+          </li>`;
+        } else {
+          html += `<li>${error.message}</li>`;
+        }
+      });
+
+      return html;
+    }
+
     const anim = new TGSKit();
 
-    anim.load('http://localhost:1234/test.json')
+    anim.load('http://localhost:1234/data.json')
       .then(() => {
         const errors = anim.validate();
 
@@ -21,7 +40,7 @@
           anim.download('sticker.tgs');
         } else {
           console.log('Given JSON is not meet requirements for a TGS:');
-          console.log(errors);
+          document.querySelector('#log').innerHTML = displayErrors(errors);
         }
       });
 
