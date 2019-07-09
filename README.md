@@ -9,7 +9,7 @@ Toolkit for dealing with Telegram Stickers and Bodymovin/Lottie animations
 ##### Lottie Player:
 - Import from CDN.
 ```html
-<script src="https://unpkg.com/@lottiefiles/tgskit@0.0.3/dist/tgskit.js"></script>
+<script src="https://unpkg.com/@lottiefiles/tgskit@0.0.4/dist/tgskit.js"></script>
 ```
 
 - Import from local node_modules directory.
